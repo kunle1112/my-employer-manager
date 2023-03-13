@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'EmployeeApp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -97,7 +97,19 @@ DATABASES = {
     }
 }
 
+"""
 
+DATABASES = {
+    'default': {
+         #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'Je4TNWGLrPmamPl43cCi',
+        'HOST': 'containers-us-west-183.railway.app',
+        'PORT': '7239',
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -147,11 +159,11 @@ MEDIA_URL='/Photos/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
-    
+    'https://employer-manager-production.up.railway.app',
     "http://localhost:3000",
   
 ]
-
+CSRF_TRUSTED_ORIGINS = ['https://employer-manager-production.up.railway.app']
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         # 'rest_framework.authentication.BasicAuthentication',
@@ -168,3 +180,11 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_ACCESS_KEY_ID='AKIATRQH4QNYICQ6YVWF'
 AWS_SECRET_ACCESS_KEY='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'
 AWS_STORAGE_BUCKET_NAME='kunle-employeeapp'
+
+CORS_ALLOWED_ORIGINS = [
+        'https://k-meetups-production.up.railway.app',
+        "http://localhost:8000"
+        
+    ]
+
+
